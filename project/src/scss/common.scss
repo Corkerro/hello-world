@@ -1,0 +1,27 @@
+// Заголовки, общие БЄМ блоки и проче...
+.button {
+  display: inline-block;
+  border-radius: 6px;
+  background: #00d1b5;
+  -webkit-transform: skewX(-15deg);
+  -ms-transform: skewX(-15deg);
+  transform: skewX(-15deg);
+  padding: 8px 28px;
+  border: 2px solid #00d1b5;
+  -webkit-transition:
+    border 0.3s ease,
+    color 0.3s ease;
+  transition:
+    border 0.3s ease,
+    color 0.3s ease;
+  &:hover {
+    border-color: #fff;
+    color: #000;
+  }
+  & span {
+    display: inline-block;
+    -webkit-transform: skewX(15deg);
+    -ms-transform: skewX(15deg);
+    transform: skewX(15deg);
+  }
+}
