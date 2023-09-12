@@ -186,6 +186,10 @@
       border-bottom: 1px solid #fff;
     }
     &_title {
+      &::-webkit-details-marker {
+        display: none;
+      }
+      list-style: none;
       cursor: pointer;
       & div {
         margin-right: 5px;
@@ -193,7 +197,6 @@
       & span {
         margin-left: 5px;
       }
-      list-style: none;
       display: flex;
       text-align: center;
       justify-content: space-between;
