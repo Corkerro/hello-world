@@ -10,10 +10,12 @@
     scale: 1.2;
     &-1 {
       left: -10%;
+      @include adaptiveValue('bottom', 0, 90);
     }
     &-2 {
       left: 10%;
       opacity: 60%;
+      @include adaptiveValue('bottom', 0, 90);
     }
   }
   &__content {

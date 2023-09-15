@@ -46,6 +46,7 @@
     }
   }
   &__card {
+    cursor: pointer;
     border-radius: 5px;
     border: 1px solid var(--prime-500, #00d1b5);
     opacity: 0.6999999881;

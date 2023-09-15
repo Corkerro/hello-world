@@ -43,7 +43,6 @@ coursesCard.forEach((course) => {
     const changeLocation = (element) => {
       element.classList.add('click');
       setTimeout(() => {
-        window.location.href = element.getAttribute('href');
         setTimeout(() => {
           element.classList.remove('click');
           clearTimeout(timeoutId);
@@ -178,16 +177,16 @@ gsap.fromTo(
   '.courses',
   {
     opacity: 0,
-    y: 120,
+    y: 60,
   },
   {
     opacity: 1,
     y: 0,
     scrollTrigger: {
-      trigger: '.benefits',
+      trigger: '.courses',
       scrub: true,
-      start: 'bottom bottom',
-      end: '260',
+      start: '-900',
+      end: '-600',
     },
   },
 );
