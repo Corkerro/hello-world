@@ -1,0 +1,202 @@
+// body::after {
+//   content: '';
+//   background: rgba(34, 34, 34, 0.9);
+//   backdrop-filter: blur(5px);
+//   position: fixed;
+//   width: 100%;
+//   height: 100%;
+//   top: 0;
+//   left: 0;
+//   opacity: 0;
+//   transition: opacity 0.8s ease 0s;
+//   pointer-events: none;
+//   z-index: 149;
+// }
+
+.popup {
+  &__bg {
+    background: rgba(34, 34, 34, 0.9);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease 0s;
+    pointer-events: none;
+    z-index: 149;
+  }
+  transform-style: preserve-3d;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 30px 10px;
+  transition: visibility 0.8s ease 0s;
+  visibility: hidden;
+  pointer-events: none;
+}
+.popup_show {
+  z-index: 150;
+  visibility: visible;
+  overflow: auto;
+  pointer-events: auto;
+}
+.popup_show .popup__content {
+  visibility: visible;
+  transform: scale(1);
+}
+.popup__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup__content {
+  visibility: hidden;
+  transform: scale(0);
+  transition: transform 0.3s ease 0s;
+  background-color: #222;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 20px;
+  align-items: center;
+  .lock & {
+    visibility: visible;
+  }
+  .popup {
+    &__close {
+      text-align: right;
+      width: 100%;
+      margin-bottom: toRem(16);
+    }
+    &__text {
+      min-height: 400px;
+      flex-direction: column;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      & h2 {
+        color: #00d1b5;
+        font-family: Open Sans;
+        position: relative;
+        @include adaptiveValue('font-size', 48, 36);
+        font-style: normal;
+        font-weight: 600;
+        // line-height: 110%;
+        text-align: center;
+        @include adaptiveValue('margin-bottom', 4, 4);
+        @media (max-width: em(450)) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        & mark {
+          color: #fff;
+          font-family: Open Sans;
+          @include adaptiveValue('font-size', 16, 12);
+          font-style: normal;
+          font-weight: 600;
+          line-height: 143%;
+          background: transparent;
+          padding-top: toRem(12);
+        }
+      }
+    }
+    &__block {
+      &_text {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      &_content {
+        max-width: toRem(535);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: start;
+      }
+      &_break {
+        height: 100px;
+        width: 2px;
+        background: #fff;
+      }
+      @include adaptiveValue('margin-top', 32, 42);
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      width: calc(100% - 30px);
+      margin: 0 auto;
+      gap: 16px;
+      @media (max-width: em(700)) {
+        flex-direction: column;
+        &_break {
+          width: 100%;
+          height: 2px;
+        }
+        &_content,
+        &_text {
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+      }
+      &.column {
+        flex-direction: column;
+        gap: 16px;
+        justify-content: center;
+        align-items: center;
+        & h3 {
+          text-align: center;
+        }
+        & p {
+          text-align: center;
+        }
+      }
+      & h3 {
+        color: #fff;
+        font-family: Open Sans;
+        @include adaptiveValue('font-size', 24, 18);
+        font-style: normal;
+        font-weight: 600;
+        line-height: 100%; /* 24px */
+
+        & mark {
+          color: #00d1b5;
+          font-family: Open Sans;
+          @include adaptiveValue('font-size', 16, 14);
+          font-style: normal;
+          font-weight: 600;
+          line-height: 100%;
+          background: transparent;
+          white-space: nowrap;
+        }
+      }
+      & p {
+        max-width: toRem(600);
+        margin: 0 auto;
+        color: #fff;
+        font-family: Open Sans;
+        @include adaptiveValue('font-size', 16, 14);
+        font-style: normal;
+        font-weight: 400;
+      }
+      & a {
+        color: #222;
+        padding-top: toRem(12);
+        padding-bottom: toRem(12);
+        font-weight: 600;
+      }
+    }
+  }
+}
